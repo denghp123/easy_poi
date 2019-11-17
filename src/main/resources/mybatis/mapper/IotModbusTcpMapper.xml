@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IotModbusTcpMapper">
+  <resultMap id="BaseResultMap" type="com.happygo.entity.IotModbusTcpDO">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="device_id" jdbcType="INTEGER" property="deviceId" />
+    <result column="slave_num" jdbcType="INTEGER" property="slaveNum" />
+    <result column="units_id" jdbcType="INTEGER" property="unitsId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="serial" jdbcType="VARCHAR" property="serial" />
+    <result column="register_type" jdbcType="TINYINT" property="registerType" />
+    <result column="function_type" jdbcType="VARCHAR" property="functionType" />
+    <result column="address" jdbcType="INTEGER" property="address" />
+    <result column="address_type" jdbcType="TINYINT" property="addressType" />
+    <result column="address_length" jdbcType="TINYINT" property="addressLength" />
+    <result column="model_type" jdbcType="INTEGER" property="modelType" />
+    <result column="bite" jdbcType="INTEGER" property="bite" />
+    <result column="factor" jdbcType="DOUBLE" property="factor" />
+    <result column="frequency" jdbcType="INTEGER" property="frequency" />
+    <result column="dict_id" jdbcType="VARCHAR" property="dictId" />
+    <result column="event_code_id" jdbcType="INTEGER" property="eventCodeId" />
+    <result column="event_type_id" jdbcType="INTEGER" property="eventTypeId" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="office_id" jdbcType="INTEGER" property="officeId" />
+    <result column="create_by" jdbcType="INTEGER" property="createBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_by" jdbcType="INTEGER" property="updateBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, device_id, slave_num, units_id, name, unit, serial, register_type, function_type, 
+    address, address_type, address_length, model_type, bite, factor, frequency, dict_id, 
+    event_code_id, event_type_id, type, sort, office_id, create_by, create_date, update_by, 
+    update_date, remarks, del_flag
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from iot_modbus_tcp
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.happygo.sc.stock.dao.entity.IotModbusTcpDO">
+    insert into iot_modbus_tcp (id, device_id, slave_num, 
+      units_id, name, unit, 
+      serial, register_type, function_type, 
+      address, address_type, address_length, 
+      model_type, bite, factor, 
+      frequency, dict_id, event_code_id, 
+      event_type_id, type, sort, 
+      office_id, create_by, create_date, 
+      update_by, update_date, remarks, 
+      del_flag)
+    values (#{id,jdbcType=INTEGER}, #{deviceId,jdbcType=INTEGER}, #{slaveNum,jdbcType=INTEGER}, 
+      #{unitsId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{serial,jdbcType=VARCHAR}, #{registerType,jdbcType=TINYINT}, #{functionType,jdbcType=VARCHAR}, 
+      #{address,jdbcType=INTEGER}, #{addressType,jdbcType=TINYINT}, #{addressLength,jdbcType=TINYINT}, 
+      #{modelType,jdbcType=INTEGER}, #{bite,jdbcType=INTEGER}, #{factor,jdbcType=DOUBLE}, 
+      #{frequency,jdbcType=INTEGER}, #{dictId,jdbcType=VARCHAR}, #{eventCodeId,jdbcType=INTEGER}, 
+      #{eventTypeId,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, #{sort,jdbcType=INTEGER}, 
+      #{officeId,jdbcType=INTEGER}, #{createBy,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR})
+  </insert>
+</mapper>

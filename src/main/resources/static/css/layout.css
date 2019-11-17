@@ -1,0 +1,19 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    list-style: none;
+}
+
+#top-data li{
+    margin: 10px;
+    height: 20px;
+    float: left;
+    padding: 0 5px ;
+    border: 1px solid beige;
+}
+#top-data li span:hover{
+    color: red;
+}
+
+
